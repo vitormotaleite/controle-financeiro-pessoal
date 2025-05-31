@@ -23,7 +23,7 @@ public class Transacao implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String Descricao;
+    private String descricao;
     private BigDecimal valor;
     private LocalDate data;
     @Enumerated(EnumType.STRING)
@@ -36,10 +36,9 @@ public class Transacao implements Serializable {
     public Transacao() {
     }
 
-    public Transacao(Long id, String descricao, BigDecimal valor, LocalDate data, TipoTransacao tipo,
-            Categoria categoria) {
+    public Transacao(Long id, String descricao, BigDecimal valor, LocalDate data, TipoTransacao tipo, Categoria categoria) {
         this.id = id;
-        Descricao = descricao;
+        this.descricao = descricao;
         this.valor = valor;
         this.data = data;
         this.tipo = tipo;
@@ -51,11 +50,11 @@ public class Transacao implements Serializable {
     }
 
     public String getDescricao() {
-        return Descricao;
+        return descricao;
     }
 
     public void setDescricao(String descricao) {
-        Descricao = descricao;
+        this.descricao = descricao;
     }
 
     public BigDecimal getValor() {
