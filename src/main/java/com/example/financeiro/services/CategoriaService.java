@@ -31,4 +31,14 @@ public class CategoriaService {
     public void delete(Long id) {
         categoriaRepository.deleteById(id);
     }
+
+    public Categoria update(Long id, Categoria obj) {
+        Categoria entity = categoriaRepository.getReferenceById(id);
+        updateData(entity,obj);
+        return categoriaRepository.save(entity);
+    }
+
+    private void updateData(Categoria entity, Categoria obj) {
+        entity.setName(obj.getName());
+    }
 }

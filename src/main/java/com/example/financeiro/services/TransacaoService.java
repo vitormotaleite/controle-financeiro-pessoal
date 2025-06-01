@@ -31,4 +31,18 @@ public class TransacaoService {
     public void delete(Long id) {
         transacaoRepository.deleteById(id);
     }
+
+    public Transacao update(Long id, Transacao obj) {
+        Transacao entity = transacaoRepository.getReferenceById(id);
+        updateData(entity,obj);
+        return transacaoRepository.save(entity);
+    }
+
+    private void updateData(Transacao entity, Transacao obj) {
+        entity.setDescricao(obj.getDescricao());
+        entity.setValor(obj.getValor());
+        entity.setData(obj.getData());
+        entity.setTipo(obj.getTipo());
+        entity.setCategoria(obj.getCategoria());
+    }
 }
