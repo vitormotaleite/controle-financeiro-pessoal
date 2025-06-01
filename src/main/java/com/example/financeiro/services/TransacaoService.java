@@ -27,4 +27,8 @@ public class TransacaoService {
     public Transacao insert(Transacao obj) {
         return transacaoRepository.save(obj);
     }
+
+    public void delete(Long id) {
+        transacaoRepository.deleteById(id);
+    }
 }

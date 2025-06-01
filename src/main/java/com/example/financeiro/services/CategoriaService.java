@@ -27,4 +27,8 @@ public class CategoriaService {
     public Categoria insert(Categoria obj) {
         return categoriaRepository.save(obj);
     }
+
+    public void delete(Long id) {
+        categoriaRepository.deleteById(id);
+    }
 }
