@@ -33,16 +33,21 @@ public class Transacao implements Serializable {
     @JoinColumn(name = "categoria_id")
     private Categoria categoria;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     public Transacao() {
     }
 
-    public Transacao(Long id, String descricao, BigDecimal valor, LocalDate data, TipoTransacao tipo, Categoria categoria) {
+    public Transacao(Long id, String descricao, BigDecimal valor, LocalDate data, TipoTransacao tipo, Categoria categoria, Usuario usuario) {
         this.id = id;
         this.descricao = descricao;
         this.valor = valor;
         this.data = data;
         this.tipo = tipo;
         this.categoria = categoria;
+        this.usuario = usuario;
     }
 
     public Long getId() {
@@ -87,6 +92,14 @@ public class Transacao implements Serializable {
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     @Override
