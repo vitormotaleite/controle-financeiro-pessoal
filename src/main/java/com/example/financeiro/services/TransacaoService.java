@@ -23,4 +23,8 @@ public class TransacaoService {
         Optional<Transacao> obj = transacaoRepository.findById(id);
         return obj.get();
     }
+
+    public Transacao insert(Transacao obj) {
+        return transacaoRepository.save(obj);
+    }
 }
