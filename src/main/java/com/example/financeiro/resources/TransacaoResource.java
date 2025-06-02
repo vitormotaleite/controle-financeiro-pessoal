@@ -46,7 +46,7 @@ public class TransacaoResource {
     }
 
     @DeleteMapping(value = "/{id}")
-    public ResponseEntity<Transacao> delete(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         transacaoService.delete(id);
         return ResponseEntity.noContent().build();
     }
